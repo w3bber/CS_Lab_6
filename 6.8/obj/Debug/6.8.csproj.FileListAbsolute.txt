@@ -1,0 +1,7 @@
+D:\Education\2 курс\C# Programing\Lab 6\6.8\bin\Debug\6.8.exe.config
+D:\Education\2 курс\C# Programing\Lab 6\6.8\bin\Debug\6.8.exe
+D:\Education\2 курс\C# Programing\Lab 6\6.8\bin\Debug\6.8.pdb
+D:\Education\2 курс\C# Programing\Lab 6\6.8\obj\Debug\6.8.csproj.AssemblyReference.cache
+D:\Education\2 курс\C# Programing\Lab 6\6.8\obj\Debug\6.8.csproj.CoreCompileInputs.cache
+D:\Education\2 курс\C# Programing\Lab 6\6.8\obj\Debug\6.8.exe
+D:\Education\2 курс\C# Programing\Lab 6\6.8\obj\Debug\6.8.pdb

@@ -10,9 +10,7 @@ namespace _6._3
     {
         static void Main(string[] args)
         {
-            task();
-
-            
+            task();          
         }
 
         static void task()
@@ -33,7 +31,7 @@ namespace _6._3
                 int maxValue = arr.Max();
                 Console.WriteLine("Максимальный элемент: " + maxValue);
                 Console.WriteLine("Минимальный элемент: " + minValue);
-                int[] newArr = new int[arr.Length + 1];
+                int[] newArr = new int[SIZE + numberOfOccurrences(arr, maxValue)];
                 int newIndex = 0;
                 bool inserted = false;
                 for (int i = 0; i < arr.Length; i++)
@@ -47,9 +45,18 @@ namespace _6._3
                     newArr[newIndex] = arr[i];
                     newIndex++;
                 }
+                
                 Console.WriteLine("Изменённый массив");
                 print(newArr);
-                
+
+                int uniqueCount = removingDuplicateElements(newArr);
+                int[] uniqueArray = new int[uniqueCount];
+
+                Array.Copy(newArr, uniqueArray, uniqueCount);
+
+                Console.WriteLine("Удаление повторяющихся чисел");
+                print(uniqueArray);
+
                 Console.ReadKey();
             }
             catch(Exception ex) 
@@ -60,6 +67,43 @@ namespace _6._3
             
 
         }
+        static int numberOfOccurrences(int[] arr, int value)
+        {
+            int count = 0;
+            foreach(int el in arr)
+            {
+                if(el == value)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        static int removingDuplicateElements(int[] array)
+        {
+            int uniqueCount = 0;
+            for(int i = 0; i < array.Length; i++)
+            {
+                bool isDuplicate = false;
+                for (int j = 0; j < i; j++)
+                {
+                    
+                    if (array[i] == array[j])
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+                if(!isDuplicate)
+                {
+                    array[uniqueCount] = array[i];
+                    uniqueCount++;
+                }
+            }
+            return uniqueCount;
+        }
+        
         static void print(int[] array, int count = -1)
         {
             if(count == -1)
