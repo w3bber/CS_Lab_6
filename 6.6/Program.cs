@@ -11,48 +11,98 @@ namespace _6._6
         static void Main(string[] args)
         {
             int[,] arr = init();
+            int[,] test = new int[,]
+                {
+                    {1, 2, 3, 4, 6, 7},
+                    {3, -2, 5, -1, -7, 1 },
+                    {4, -5, 6, -3, -3, 2 }
+                };
+
+            int[,] test2 = new int[arr.GetLength(0), arr.GetLength(1)];
+
+            Array.Copy(arr, test2, arr.GetLength(0) * arr.GetLength(1));
+
             printArray(arr);
 
+            int rows = arr.GetLength(0);
             int columns = arr.GetLength(1);
 
-            for(int col = 0; col < columns; col++)
+            for (int col = 0; col < columns; col++)
             {
+                Console.WriteLine($"\nПроверка столбца {col + 1}: ");
                 bool hasTwoNegatives = isColumnWithTwoNegativeNumber(arr, col);
-                if(hasTwoNegatives)
+                if (hasTwoNegatives)
                 {
-                    moveColumnToEnd(arr, col);
+                    Console.WriteLine($"Столбец {col + 1} содержит ровно два отрицательных элемента.");
+
+                    // Переставляем столбец
+                    int newCol = col;
+                    while (newCol < columns - 1)
+                    {
+                        Console.WriteLine($"Перестановка столбцов {newCol + 1} и {newCol + 2}: ");
+                        for (int i = 0; i < rows; i++)
+                        {
+                            int temp = test2[i, newCol];
+                            test2[i, newCol] = test2[i, newCol + 1];
+                            test2[i, newCol + 1] = temp;
+                        }
+                        newCol++;
+                    }
+                    
+
+                    // Проверяем новый столбец
+                    if (!isColumnWithTwoNegativeNumber(arr, newCol))
+                    {
+                        Console.WriteLine($"Столбец {newCol + 1} не соответствует условию после перестановки.");
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine($"Столбец {col + 1} не содержит ровно два отрицательных элемента.");
+                    
                 }
             }
+
             Console.WriteLine("Измененный массив: ");
-            printArray(arr);
+            printArray(test2);
             
             Console.ReadKey();
         }
 
-        static void moveColumnToEnd(int[,]array, int columnIndex)
+        static void moveColumnToEnd(int[,] array, int columnIndex)
         {
             int rows = array.GetLength(0);
             int cols = array.GetLength(1);
 
-            if(columnIndex != -1 && columnIndex != cols -1)
+            while(columnIndex < cols - 1)
             {
-                int[] tempColumn = new int[rows];
-                for(int i = 0; i < rows; i++)
+                for(int i =0; i < rows; i++)
                 {
-                    tempColumn[i] = array[i, columnIndex];
+                    int temp = array[i, columnIndex];
+                    array[i, columnIndex] = array[i, columnIndex + 1];
+                    array[i, columnIndex + 1] = temp;
                 }
-                for(int i = columnIndex; i < cols - 1; i++)
-                {
-                    for(int j = 0; j < rows; j++)
-                    {
-                        array[j, i] = array[j, i + 1];
-                    }
-                }
-                for(int i = 0; i < rows; i++)
-                {
-                    array[i, cols - 1] = tempColumn[i];
-                }
+                columnIndex++;
             }
+
+            //int[] tempColumn = new int[rows];
+            //for (int i = 0; i < rows; i++)
+            //{
+            //    tempColumn[i] = array[i, columnIndex];
+            //}
+            //for (int i = columnIndex; i < cols - 1; i++)
+            //{
+            //    for (int j = 0; j < rows; j++)
+            //    {
+            //        array[j, i] = array[j, i + 1];
+            //    }
+            //}
+            //for (int i = 0; i < rows; i++)
+            //{
+            //    array[i, cols - 1] = tempColumn[i];
+            //}
+
         }
         static void printArray(int[,] array)
         {
@@ -65,6 +115,7 @@ namespace _6._6
                 Console.WriteLine();
             }
         }
+
         static int[,] init()
         {
             try
