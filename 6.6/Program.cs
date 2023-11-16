@@ -11,16 +11,6 @@ namespace _6._6
         static void Main(string[] args)
         {
             int[,] arr = init();
-            int[,] test = new int[,]
-                {
-                    {1, 2, 3, 4, 6, 7},
-                    {3, -2, 5, -1, -7, 1 },
-                    {4, -5, 6, -3, -3, 2 }
-                };
-
-            int[,] test2 = new int[arr.GetLength(0), arr.GetLength(1)];
-
-            Array.Copy(arr, test2, arr.GetLength(0) * arr.GetLength(1));
 
             printArray(arr);
 
@@ -42,30 +32,17 @@ namespace _6._6
                         Console.WriteLine($"Перестановка столбцов {newCol + 1} и {newCol + 2}: ");
                         for (int i = 0; i < rows; i++)
                         {
-                            int temp = test2[i, newCol];
-                            test2[i, newCol] = test2[i, newCol + 1];
-                            test2[i, newCol + 1] = temp;
+                            int temp = arr[i, newCol];
+                            arr[i, newCol] = arr[i, newCol + 1];
+                            arr[i, newCol + 1] = temp;
                         }
                         newCol++;
                     }
-                    
-
-                    // Проверяем новый столбец
-                    if (!isColumnWithTwoNegativeNumber(arr, newCol))
-                    {
-                        Console.WriteLine($"Столбец {newCol + 1} не соответствует условию после перестановки.");
-                    }
-                    
-                }
-                else
-                {
-                    Console.WriteLine($"Столбец {col + 1} не содержит ровно два отрицательных элемента.");
-                    
                 }
             }
 
             Console.WriteLine("Измененный массив: ");
-            printArray(test2);
+            printArray(arr);
             
             Console.ReadKey();
         }
