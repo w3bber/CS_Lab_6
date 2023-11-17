@@ -19,17 +19,13 @@ namespace _6._6
 
             for (int col = 0; col < columns; col++)
             {
-                Console.WriteLine($"\nПроверка столбца {col + 1}: ");
                 bool hasTwoNegatives = isColumnWithTwoNegativeNumber(arr, col);
                 if (hasTwoNegatives)
                 {
-                    Console.WriteLine($"Столбец {col + 1} содержит ровно два отрицательных элемента.");
-
-                    // Переставляем столбец
                     int newCol = col;
-                    while (newCol < columns - 1)
+                    int newColumns = arr.GetLength(1);
+                    while (newCol < newColumns - 1)
                     {
-                        Console.WriteLine($"Перестановка столбцов {newCol + 1} и {newCol + 2}: ");
                         for (int i = 0; i < rows; i++)
                         {
                             int temp = arr[i, newCol];
@@ -37,7 +33,14 @@ namespace _6._6
                             arr[i, newCol + 1] = temp;
                         }
                         newCol++;
-                    }
+                    }                   
+                    columns--;
+
+                    col = -1;
+                }
+                else
+                {
+                    continue;                
                 }
             }
 
@@ -62,24 +65,6 @@ namespace _6._6
                 }
                 columnIndex++;
             }
-
-            //int[] tempColumn = new int[rows];
-            //for (int i = 0; i < rows; i++)
-            //{
-            //    tempColumn[i] = array[i, columnIndex];
-            //}
-            //for (int i = columnIndex; i < cols - 1; i++)
-            //{
-            //    for (int j = 0; j < rows; j++)
-            //    {
-            //        array[j, i] = array[j, i + 1];
-            //    }
-            //}
-            //for (int i = 0; i < rows; i++)
-            //{
-            //    array[i, cols - 1] = tempColumn[i];
-            //}
-
         }
         static void printArray(int[,] array)
         {

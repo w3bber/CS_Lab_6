@@ -5,3 +5,11 @@ D:\Education\2 курс\C# Programing\Lab 6\6.6\obj\Debug\6.6.csproj.AssemblyRef
 D:\Education\2 курс\C# Programing\Lab 6\6.6\obj\Debug\6.6.csproj.CoreCompileInputs.cache
 D:\Education\2 курс\C# Programing\Lab 6\6.6\obj\Debug\6.6.exe
 D:\Education\2 курс\C# Programing\Lab 6\6.6\obj\Debug\6.6.pdb
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\bin\Debug\6.6.exe.config
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\bin\Debug\6.6.exe
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\bin\Debug\6.6.pdb
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\obj\Debug\6.6.csproj.AssemblyReference.cache
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\obj\Debug\6.6.csproj.SuggestedBindingRedirects.cache
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\obj\Debug\6.6.csproj.CoreCompileInputs.cache
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\obj\Debug\6.6.exe
+D:\Users\class\Desktop\123\CS_Lab_6\6.6\obj\Debug\6.6.pdb
